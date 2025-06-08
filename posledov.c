@@ -31,7 +31,7 @@ void bubble_sort(int* array, size_t size) {
                 swapped = 1;
             }
         }
-        if (!swapped) break; // если не было обменов — выходим
+        if (!swapped) break; // ГҐГ±Г«ГЁ Г­ГҐ ГЎГ»Г«Г® Г®ГЎГ¬ГҐГ­Г®Гў вЂ” ГўГ»ГµГ®Г¤ГЁГ¬
     }
 }
 
@@ -42,19 +42,19 @@ int main() {
     size_t SIZE;
     int NUM_RUNS;
 
-    printf("Введите количество элементов в массиве: ");
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Гў Г¬Г Г±Г±ГЁГўГҐ: ");
     scanf("%zu", &SIZE);
 
     if (SIZE <= 0) {
-        printf("Ошибка: количество элементов должно быть положительным!\n");
+        printf("ГЋГёГЁГЎГЄГ : ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»Г¬!\n");
         return 1;
     }
 
-    printf("Введите количество запусков: ");
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г§Г ГЇГіГ±ГЄГ®Гў: ");
     scanf("%d", &NUM_RUNS);
 
     if (NUM_RUNS <= 0) {
-        printf("Ошибка: количество запусков должно быть положительным!\n");
+        printf("ГЋГёГЁГЎГЄГ : ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г§Г ГЇГіГ±ГЄГ®Гў Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»Г¬!\n");
         return 1;
     }
 
@@ -68,7 +68,7 @@ int main() {
         clock_t fill_start = clock();
         int* array = (int*)malloc(SIZE * sizeof(int));
         if (array == NULL) {
-            printf("Ошибка: не удалось выделить память!\n");
+            printf("ГЋГёГЁГЎГЄГ : Г­ГҐ ГіГ¤Г Г«Г®Г±Гј ГўГ»Г¤ГҐГ«ГЁГІГј ГЇГ Г¬ГїГІГј!\n");
             return 1;
         }
 
@@ -79,7 +79,7 @@ int main() {
         clock_t fill_end = clock();
 
         clock_t sort_start = clock();
-        printf("Сортировка...\n");
+        printf("Г‘Г®Г°ГІГЁГ°Г®ГўГЄГ ...\n");
         bubble_sort(array, SIZE);
         clock_t sort_end = clock();
 
@@ -95,16 +95,16 @@ int main() {
 
         free(array);
 
-        printf("\033[1mЗапуск %d\033[0m\n", run + 1);
-        printf("Время заполнения: %.6f сек\n", fill_time);
-        printf("Время сортировки: %.6f сек\n", sort_time);
-        printf("Общее время: %.6f сек\n\n", total_time);
+        printf("\033[1mГ‡Г ГЇГіГ±ГЄ %d\033[0m\n", run + 1);
+        printf("Г‚Г°ГҐГ¬Гї Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГї: %.6f Г±ГҐГЄ\n", fill_time);
+        printf("Г‚Г°ГҐГ¬Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ: %.6f Г±ГҐГЄ\n", sort_time);
+        printf("ГЋГЎГ№ГҐГҐ ГўГ°ГҐГ¬Гї: %.6f Г±ГҐГЄ\n\n", total_time);
     }
 
-    printf("\033[1m=== СРЕДНИЕ ЗНАЧЕНИЯ (из %d запусков) ===\033[0m\n", NUM_RUNS);
-    printf("Среднее время заполнения: %.6f сек\n", total_fill_time / NUM_RUNS);
-    printf("Среднее время сортировки: %.6f сек\n", total_sort_time / NUM_RUNS);
-    printf("Среднее общее время: %.6f сек\n", total_total_time / NUM_RUNS);
+    printf("\033[1m=== Г‘ГђГ…Г„ГЌГ€Г… Г‡ГЌГЂГ—Г…ГЌГ€Гџ (ГЁГ§ %d Г§Г ГЇГіГ±ГЄГ®Гў) ===\033[0m\n", NUM_RUNS);
+    printf("Г‘Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГї: %.6f Г±ГҐГЄ\n", total_fill_time / NUM_RUNS);
+    printf("Г‘Г°ГҐГ¤Г­ГҐГҐ ГўГ°ГҐГ¬Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ: %.6f Г±ГҐГЄ\n", total_sort_time / NUM_RUNS);
+    printf("Г‘Г°ГҐГ¤Г­ГҐГҐ Г®ГЎГ№ГҐГҐ ГўГ°ГҐГ¬Гї: %.6f Г±ГҐГЄ\n", total_total_time / NUM_RUNS);
 
     return 0;
 }
