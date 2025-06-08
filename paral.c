@@ -5,7 +5,6 @@
 #include <locale.h>
 #include <mpi.h>
 
-// Bubble sort
 void bubble_sort(int* arr, size_t size) {
     for (size_t i = 0; i < size - 1; ++i) {
         for (size_t j = 0; j < size - i - 1; ++j) {
@@ -18,7 +17,6 @@ void bubble_sort(int* arr, size_t size) {
     }
 }
 
-// Merge two sorted arrays
 void merge(int* local_data, int local_size, int* partner_data, int partner_size) {
     int* merged = malloc((local_size + partner_size) * sizeof(int));
     int i = 0, j = 0, k = 0;
@@ -76,13 +74,11 @@ int main(int argc, char** argv) {
 
             fill_start = MPI_Wtime();
 
-            // Fill with random numbers (0 to 99)
             srand((unsigned int)(time(NULL) + r));
             for (size_t i = 0; i < global_n; i++) {
                 full_array[i] = rand() % 100;
             }
 
-            // Calculate send counts and displacements
             size_t base = global_n / size, offset = 0;
             for (int i = 0; i < size; i++) {
                 sendcounts[i] = base + (i == size - 1 ? global_n % size : 0);
